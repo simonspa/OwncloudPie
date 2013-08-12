@@ -85,12 +85,9 @@ function downloadLatestOwncloudRelease()
 	latestrelease=$(cat Changelog | grep Download | head -n 1)
 	latestrelease=${latestrelease:10}
 	wget "$latestrelease"
-	echo "Downloaded $latestrelease..."
 	tar -xjf "$(basename $latestrelease)"
-	echo "Extracted..."
 	rm "$(basename $latestrelease)"
 	rm Changelog
-	echo "Removed leftover files..."
 }
 
 function writeServerConfig()
